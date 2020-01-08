@@ -37,10 +37,12 @@ end
 
 I tested it on my local machine, 5.1 version performance roughly ~40 times worse than 5.0 version performance. I have no idea if I did something wrong or there is some "specific" added in 5.1. Please let me know if you find anything. Cheers.
 
-5.0: 0.0015
-5.1: 0.0787
-5.2: 0.0388
-6.0: 0.0421
+```
+5.0: 0.0015s
+5.1: 0.0787s
+5.2: 0.0388s
+6.0: 0.0421s
+```
 
 # How to add new version here
 
