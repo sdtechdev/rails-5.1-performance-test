@@ -39,6 +39,7 @@ I tested it on my local machine, 5.1 version performance roughly ~40 times worse
 
 5.0: 0.0015
 5.1: 0.0787
+5.2: 0.0388
 
 # How to add new version here
 
