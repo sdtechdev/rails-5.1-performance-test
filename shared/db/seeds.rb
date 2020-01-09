@@ -6,14 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Product.delete_all
-Product.create! JSON.parse(File.read('db/seeds/product.json'))
-
-Variant.delete_all
-Variant.create! JSON.parse(File.read('db/seeds/product-variants.json'))
-
-OptionValue.delete_all
-OptionValue.create! JSON.parse(File.read('db/seeds/product-variants-option-values.json'))
-
-OptionValuesVariant.delete_all
-OptionValuesVariant.create! JSON.parse(File.read('db/seeds/product-variants-option-values-variants.json'))
+def import_json(model, json_file_name)
+  model.delete_all
+  column_names = model.column_names
+  full_json = JSON.parse(File.read("db/seeds/#{json_file_name}.json"))
+  model.create! full_json.map { |hash| hash.slice(*column_names) }
+end
+import_json Product, 'product'
+import_json Variant, 'product-variants'
+import_json OptionValue, 'product-variants-option-values'
+import_json OptionValuesVariant, 'product-variants-option-values-variants'
